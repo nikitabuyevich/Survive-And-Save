@@ -8,8 +8,7 @@ door = keyboard_check_pressed(vk_up);
 up = keyboard_check_pressed(vk_space);
 up_release = keyboard_check_released(vk_space);
 down = keyboard_check(vk_down);
-attack_key = keyboard_check_pressed(ord('X'));
-shield_key = keyboard_check(ord('Z'));
+shoot_key = keyboard_check_pressed(ord('X'));
 roll_key = keyboard_check(ord('C'));
 
 // Override the controls for a gamepad

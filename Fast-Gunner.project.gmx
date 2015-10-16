@@ -22,6 +22,7 @@
       <sprite>sprites\spr_player_mask</sprite>
       <sprite>sprites\spr_player_ledge_grab</sprite>
       <sprite>sprites\spr_player_rolling</sprite>
+      <sprite>sprites\spr_player_shooting</sprite>
     </sprites>
     <sprites name="Level">
       <sprite>sprites\spr_inherit_solid</sprite>
@@ -29,6 +30,9 @@
         <sprite>sprites\spr_dirt_grass</sprite>
         <sprite>sprites\spr_dirt</sprite>
       </sprites>
+    </sprites>
+    <sprites name="Effects">
+      <sprite>sprites\spr_bullet</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -51,6 +55,7 @@
       <script>scripts\exit_state.gml</script>
       <script>scripts\scr_roll_state.gml</script>
       <script>scripts\scr_landing_sound.gml</script>
+      <script>scripts\scr_shoot_state.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">
@@ -65,6 +70,9 @@
       <object>objects\obj_inherit_Solid</object>
       <object>objects\obj_Dirt_grass</object>
       <object>objects\obj_Dirt</object>
+    </objects>
+    <objects name="Effects">
+      <object>objects\obj_Bullet</object>
     </objects>
   </objects>
   <rooms name="rooms">

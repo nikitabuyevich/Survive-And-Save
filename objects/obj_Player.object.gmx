@@ -3,7 +3,7 @@
   <spriteName>spr_player_idle</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-1</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>spr_player_mask</maskName>
@@ -28,15 +28,18 @@
             <string>/// Initialize the player object
 
 //CONSTANT VARIABLES
-maxSpd = 3;
-accel = 0.5;
-hSpd = 0;
-vSpd = 0;
-grav = 0.4;
-maxJumpH = -8;
-initialJumpH = -6;
-godmode = 0;
-rollDist = 5;
+maxSpd = 3; //maximum speed possible
+accel = 0.5; //acceleration
+hSpd = 0; //intiailize horizontal speed
+vSpd = 0; //initialize vertical speed
+grav = 0.4; //gravity speed
+maxJumpH = -8; //maximum jump height
+initialJumpH = -6; // initial jump height
+godmode = 0; // blink mode when hit
+rollDist = 5; // the distance to roll
+bullets = 2; // number of bullets fired
+b = -1; // bullet object
+
 
 //Scripts
 state = move_state;
@@ -156,8 +159,11 @@ script_execute(state);
             <string>/// Change back to move state 
 
 if (state == scr_roll_state) {
-    
-    obj_Player.stopRoll = true;
+    state = move_state;
+}
+
+if (state == scr_shoot_state) {
+    bullets = 2;
     state = move_state;
 }
 </string>

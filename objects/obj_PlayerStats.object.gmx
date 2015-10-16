@@ -67,9 +67,8 @@ switch (room) {
        
         if (debug){
             draw_set_font(fnt_debug);
-            draw_text_colour(view_wview[0]/15, 10, "sign(hSpd) =:" +string(sign(obj_Player.hSpd)), c_lime, c_lime, c_lime, c_lime, 1); 
+            draw_text_colour(view_wview[0]/15, 10, "bullets =:" +string(obj_Player.bullets), c_lime, c_lime, c_lime, c_lime, 1); 
             draw_text_colour(view_wview[0]/15, 25, "hSpd =:" +string(obj_Player.hSpd), c_lime, c_lime, c_lime, c_lime, 1);   
-            draw_text_colour(view_wview[0]/15, 40, "image_xscale =:" +string(image_xscale), c_lime, c_lime, c_lime, c_lime, 1);   
         } 
         else{ 
         // Draw the timer

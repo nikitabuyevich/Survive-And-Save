@@ -5,12 +5,10 @@ Main part of the whole program. This is the state the players at most of the tim
 you should be checking things regularly.
 */
 
-if (attack_key) {
-    state = scr_attack_state;
-}
 
-if (shield_key) {
-    state = scr_shield_state;
+
+if (shoot_key) {
+    state = scr_shoot_state;
 }
 
 
@@ -45,6 +43,8 @@ if (!place_meeting(x, y+1, obj_inherit_Solid)){
     if (hSpd == 0){
         image_speed = 0.1;
         sprite_index = spr_player_idle;
+        
+        
     }
     else {
         image_speed = 0.2;
