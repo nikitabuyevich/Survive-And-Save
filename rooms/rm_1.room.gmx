@@ -203,6 +203,12 @@
     <instance objName="obj_Dirt_grass" x="1152" y="672" name="inst_2D6DBD95" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_Dirt_grass" x="1184" y="672" name="inst_44BE26B6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_Dirt_grass" x="1216" y="672" name="inst_0FD60551" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_EnemyZombie" x="384" y="640" name="inst_3C280B81" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_EnemyZombie" x="416" y="640" name="inst_5848E214" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_EnemyZombie" x="448" y="640" name="inst_18C8C7A9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_EnemyZombie" x="384" y="544" name="inst_5AFC88D9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_EnemyZombie" x="640" y="544" name="inst_EB394E97" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_EnemyZombie" x="736" y="416" name="inst_89AD7D83" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

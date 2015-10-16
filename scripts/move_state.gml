@@ -5,12 +5,9 @@ Main part of the whole program. This is the state the players at most of the tim
 you should be checking things regularly.
 */
 
-
-
 if (shoot_key) {
     state = scr_shoot_state;
 }
-
 
 // Implementing gravity
 if (!place_meeting(x, y+1, obj_inherit_Solid)){
@@ -67,8 +64,9 @@ if (right || left) {
     apply_friction(accel);
 }
 
-if (hSpd != 0) {
-    image_xscale = sign(hSpd);
+//flip character depending which was he's facing
+if (hSpd != 0 && (right-left) != 0) {
+    image_xscale = sign(right-left);
 }
 
 scr_landing_sound(); //play landing sound

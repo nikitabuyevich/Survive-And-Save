@@ -29,15 +29,14 @@
 display_set_gui_size(view_wview[0], view_hview[0]);
 
 // Initialize some variables
-hp = 3;
-maxHp = 3;
+maxHp = 50;
+hp = maxHp;
 sapphires = 0;
 score = 0;
 highscore = 0;
 time = 0;
 victory = false;
-infoStr = "Time: " + string(floor(time));
-debug = true;
+debug = false;
 </string>
           </argument>
         </arguments>
@@ -64,16 +63,34 @@ debug = true;
 switch (room) {      
                
     default:
-       
+        // PLAYER GUI    
+        
+        //draw face icon
+        draw_sprite_ext(spr_hp_face, 0, 30, 20, 1, 1, 0, c_white, 1);
+        
+        
+        var playerHealth = (hp/maxHp)*100;
+        draw_healthbar(40, 15, 120, 25, playerHealth, c_black, c_red, c_lime, 0, true, true)
+        
+        /*
+        // Draw the heart spaces
+        for (var i=0; i &lt; maxHp; i++) {
+            draw_sprite_ext(spr_player_hp, 0, 40+i*2, 20, 1, 1, 0, c_black, 0.5);
+        }
+        
+        // Draw the hearts
+        
+        for (var i=0; i &lt; hp; i++) {
+            draw_sprite_ext(spr_player_hp, 0, 40+i*2, 20, 1, 1, 0, c_white, 1);
+        }
+        
+        */
+    
         if (debug){
             draw_set_font(fnt_debug);
-            draw_text_colour(view_wview[0]/15, 10, "bullets =:" +string(obj_Player.bullets), c_lime, c_lime, c_lime, c_lime, 1); 
-            draw_text_colour(view_wview[0]/15, 25, "hSpd =:" +string(obj_Player.hSpd), c_lime, c_lime, c_lime, c_lime, 1);   
+            draw_text_colour(view_wview[0]/15, 10, "hSpd =:" +string(obj_Player.hSpd), c_lime, c_lime, c_lime, c_lime, 1);   
+            draw_text_colour(view_wview[0]/15, 25, "rolledOnce =:" +string(obj_Player.rolledOnce), c_lime, c_lime, c_lime, c_lime, 1);   
         } 
-        else{ 
-        // Draw the timer
-        draw_text_colour(view_wview[0]/2+78, 11, strvic, c_lime, c_lime, c_lime, c_lime, 1.5);
-        }
      
 
         

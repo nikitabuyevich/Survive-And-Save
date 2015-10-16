@@ -5,9 +5,11 @@ decides to stop moving.
 */
 var amount = argument0;
 
+var directionCorrected = sign(hSpd);
+
 if (hSpd != 0) {
     if (abs(hSpd)-amount > 0) {
-        hSpd -= amount*image_xscale;
+        hSpd -= amount*directionCorrected;
     } else {
         hSpd = 0;
     }
