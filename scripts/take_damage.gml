@@ -18,6 +18,6 @@ Player's been damaged by something so the events play out
         
         
         if (instance_exists(obj_PlayerStats)) {
-            obj_PlayerStats.hp -= 1;
+            obj_PlayerStats.hp -= obj_PlayerStats.zombieDamage;
         }
     }

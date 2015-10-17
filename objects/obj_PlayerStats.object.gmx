@@ -36,7 +36,10 @@ score = 0;
 highscore = 0;
 time = 0;
 victory = false;
-debug = false;
+debug = true;
+
+// Damage from enemies
+zombieDamage = 5;
 </string>
           </argument>
         </arguments>
@@ -70,26 +73,13 @@ switch (room) {
         
         
         var playerHealth = (hp/maxHp)*100;
-        draw_healthbar(40, 15, 120, 25, playerHealth, c_black, c_red, c_lime, 0, true, true)
-        
-        /*
-        // Draw the heart spaces
-        for (var i=0; i &lt; maxHp; i++) {
-            draw_sprite_ext(spr_player_hp, 0, 40+i*2, 20, 1, 1, 0, c_black, 0.5);
-        }
-        
-        // Draw the hearts
-        
-        for (var i=0; i &lt; hp; i++) {
-            draw_sprite_ext(spr_player_hp, 0, 40+i*2, 20, 1, 1, 0, c_white, 1);
-        }
-        
-        */
+        draw_healthbar(40, 15, 120, 25, playerHealth, c_black, c_red, c_lime, 0, true, true);
     
         if (debug){
             draw_set_font(fnt_debug);
-            draw_text_colour(view_wview[0]/15, 10, "hSpd =:" +string(obj_Player.hSpd), c_lime, c_lime, c_lime, c_lime, 1);   
-            draw_text_colour(view_wview[0]/15, 25, "rolledOnce =:" +string(obj_Player.rolledOnce), c_lime, c_lime, c_lime, c_lime, 1);   
+            draw_text_colour(view_wview[0]/2, 10, "hSpd =:" +string(obj_Player.hSpd), c_lime, c_lime, c_lime, c_lime, 1);   
+            draw_text_colour(view_wview[0]/2, 25, "vSpd =:" +string(obj_Player.vSpd), c_lime, c_lime, c_lime, c_lime, 1);   
+            draw_text_colour(view_wview[0]/2, 40, "grav =:" +string(obj_Player.grav), c_lime, c_lime, c_lime, c_lime, 1);   
         } 
      
 

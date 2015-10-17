@@ -139,7 +139,7 @@ audio_emitter_gain(audio_em, 0.1);
 audio_play_sound_on(audio_em, snd_enemy_hit, false, 8);   
 
 // blood effect
-repeat (irandom_range(4, 7)) {
+repeat (irandom_range(2, 3)) {
     // Create within an area
     var rand_x = irandom_range(-4, 4);
     var rand_y = irandom_range(-4, 4);

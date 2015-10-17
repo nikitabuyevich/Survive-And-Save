@@ -39,14 +39,18 @@ godmode = 0; // blink mode when hit
 rollDist = 5; // the distance to roll
 bullets = 2; // number of bullets fired
 bulletObject = -1; // bullet object
-rolledOnce = false; // forces to commit to roll
 
+// Control variables
+rolledOnce = false; // forces to commit to roll
+rolledDamage = false; //used to only get once damage when rolling
 
 //Scripts
 state = move_state;
 
 // Create the audio emitter
-audio_em = audio_emitter_create();
+audio_em_1 = audio_emitter_create(); // damage
+audio_em_2 = audio_emitter_create(); // landing
+audio_em_3 = audio_emitter_create(); // shooting
 
 </string>
           </argument>
@@ -163,15 +167,43 @@ script_execute(state);
             <kind>1</kind>
             <string>/// Collide with enemies
 
-repeat (irandom_range(4, 7)) {
+
+
+//only take damage once if in roll state;
+if (state == roll_state){
+    if (!rolledDamage){
+        repeat (irandom_range(4, 7)) {
+        // Create within an area
+        var rand_x = irandom_range(-4, 4);
+        var rand_y = irandom_range(-4, 4);
+        
+        instance_create(x+rand_x, y+rand_y, obj_Blood);
+        }
+        if (!audio_is_playing(snd_ouch)){
+            audio_emitter_pitch(audio_em_1, 1.6);
+            audio_emitter_gain(audio_em_1, 0.8);
+            audio_play_sound_on(audio_em_1, snd_ouch, false, 8);  
+        }
+        
+        if (instance_exists(obj_PlayerStats)) {
+                obj_PlayerStats.hp -= obj_PlayerStats.zombieDamage;
+                rolledDamage = true;
+        }
+    }
+    
+   
+} 
+else {
+    repeat (irandom_range(4, 7)) {
     // Create within an area
     var rand_x = irandom_range(-4, 4);
     var rand_y = irandom_range(-4, 4);
     
     instance_create(x+rand_x, y+rand_y, obj_Blood);
+    }
+    scr_take_damage();
+    
 }
-
-take_damage();
 
 
 </string>
@@ -198,12 +230,13 @@ take_damage();
             <kind>1</kind>
             <string>/// Change back to move state 
 
-if (state == scr_roll_state) {
+if (state == roll_state) {
     rolledOnce = false;
+    rolledDamage = false;
     state = move_state;
 }
 
-if (state == scr_shoot_state) {
+if (state == shoot_state) {
     bullets = 2;
     state = move_state;
 }

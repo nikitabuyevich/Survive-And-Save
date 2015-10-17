@@ -60,17 +60,16 @@
       <script>scripts\horizontal_move_bounce.gml</script>
       <script>scripts\apply_friction.gml</script>
       <script>scripts\get_input.gml</script>
-      <script>scripts\take_damage.gml</script>
       <script>scripts\scr_take_damage.gml</script>
+      <script>scripts\scr_landing_sound.gml</script>
     </scripts>
     <scripts name="Player States">
       <script>scripts\move_state.gml</script>
       <script>scripts\ledge_grab_state.gml</script>
       <script>scripts\hurt_state.gml</script>
       <script>scripts\exit_state.gml</script>
-      <script>scripts\scr_roll_state.gml</script>
-      <script>scripts\scr_landing_sound.gml</script>
-      <script>scripts\scr_shoot_state.gml</script>
+      <script>scripts\roll_state.gml</script>
+      <script>scripts\shoot_state.gml</script>
     </scripts>
     <scripts name="Enemy States">
       <script>scripts\scr_knockback.gml</script>

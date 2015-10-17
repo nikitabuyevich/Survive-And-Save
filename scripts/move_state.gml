@@ -6,7 +6,7 @@ you should be checking things regularly.
 */
 
 if (shoot_key) {
-    state = scr_shoot_state;
+    state = shoot_state;
 }
 
 // Implementing gravity
@@ -27,7 +27,7 @@ if (!place_meeting(x, y+1, obj_inherit_Solid)){
     
     // go to roll state
     if (roll_key) {
-    state = scr_roll_state;
+    state = roll_state;
     }
     
     // Jumping
@@ -54,7 +54,29 @@ if (!place_meeting(x, y+1, obj_inherit_Solid)){
 // and check for walls
 if (right || left) {
     hSpd += (right-left)*accel;
-
+    
+    // left side wall jump
+    if (place_meeting(x-1, y, obj_inherit_Solid) && !place_meeting(x, y+1, obj_inherit_Solid) ){
+        sprite_index = spr_player_ledge_grab;
+        if (vSpd < 0)
+            vSpd += 0.25; 
+        else
+            vSpd = 1.35;
+        if (!left && !down)
+            vSpd = initialJumpH;
+    }
+    
+    // right side wall jump
+    if (place_meeting(x+1, y, obj_inherit_Solid) && !place_meeting(x, y+1, obj_inherit_Solid) ){
+        sprite_index = spr_player_ledge_grab;
+        if (vSpd < 0)
+            vSpd += 0.25; 
+        else
+            vSpd = 1.35;
+        if (!right && !down)
+            vSpd = initialJumpH;
+    }
+    
     if (hSpd > maxSpd)
         hSpd = maxSpd;
     
@@ -96,7 +118,7 @@ if (falling && wasnt_wall && is_wall) {
     state = ledge_grab_state;
     
     // Play the ledge grab sound
-    audio_emitter_pitch(audio_em, 1.5);
-    audio_emitter_gain(audio_em, 0.1);
-    audio_play_sound_on(audio_em, snd_step, false, 6);
+    audio_emitter_pitch(audio_em_2, 1.5);
+    audio_emitter_gain(audio_em_2, 0.1);
+    audio_play_sound_on(audio_em_2, snd_step, false, 6);
 }

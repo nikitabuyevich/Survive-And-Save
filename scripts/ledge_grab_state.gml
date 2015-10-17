@@ -9,6 +9,7 @@ if (down) {
 }
 
 if (up) {
+    vSpd = initialJumpH*1.2;
+    scr_move(obj_inherit_Solid); // make sure theres no collisions
     state = move_state;
-    vSpd = initialJumpH;
 }
