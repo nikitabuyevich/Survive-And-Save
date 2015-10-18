@@ -5,7 +5,11 @@ Main part of the whole program. This is the state the players at most of the tim
 you should be checking things regularly.
 */
 
-if (shoot_key) {
+if (shoot_key && !inLedgeGrab) {
+    state = shoot_state;
+}
+
+if (grenade_key) {
     state = shoot_state;
 }
 
@@ -13,10 +17,12 @@ if (shoot_key) {
 if (!place_meeting(x, y+1, obj_inherit_Solid)){
     vSpd += grav;
     
-    // Player is in the air
-    sprite_index = spr_player_jump;
-    image_speed = 0;
-    image_index = (vSpd > 0);
+    if (!inLedgeGrab){
+        // Player is in the air
+        sprite_index = spr_player_jump;
+        image_speed = 0;
+        image_index = (vSpd > 0);
+    }
     
     // Control the jump height
     if (up_release && vSpd < initialJumpH) {
@@ -57,25 +63,77 @@ if (right || left) {
     
     // left side wall jump
     if (place_meeting(x-1, y, obj_inherit_Solid) && !place_meeting(x, y+1, obj_inherit_Solid) ){
-        sprite_index = spr_player_ledge_grab;
+        inLedgeGrab = true; 
+        if (!shoot_key)
+            sprite_index = spr_player_ledge_grab;
         if (vSpd < 0)
             vSpd += 0.25; 
         else
             vSpd = 1.35;
+            
+            if (shoot_key){            
+                image_speed = 0.1;
+                sprite_index = spr_player_ledge_grab_shooting;
+                
+                if (!audio_is_playing(snd_firing)){
+                audio_emitter_pitch(audio_em_3, 1.1);
+                audio_emitter_gain(audio_em_3, 0.4);
+                audio_play_sound_on(audio_em_3, snd_firing, false, 8); 
+                }
+                
+                if (bulletsGun1[2] > 0){
+                    bulletObject = instance_create(x+(image_xscale*10), y+3, obj_Bullet);
+                    bulletsGun1[2] -= 1;
+                    bulletObject.speed = 8;
+                    
+                    // Check direction
+                    if (image_xscale == 1)
+                        bulletObject.direction = 180;
+                    else
+                        bulletObject.direction = 0;
+                }
+            }
+            
         if (!left && !down)
             vSpd = initialJumpH;
-    }
-    
+     } 
+        
     // right side wall jump
-    if (place_meeting(x+1, y, obj_inherit_Solid) && !place_meeting(x, y+1, obj_inherit_Solid) ){
-        sprite_index = spr_player_ledge_grab;
+    else if (place_meeting(x+1, y, obj_inherit_Solid) && !place_meeting(x, y+1, obj_inherit_Solid) ){
+        if (!shoot_key)
+            sprite_index = spr_player_ledge_grab;
+        inLedgeGrab = true;
         if (vSpd < 0)
             vSpd += 0.25; 
         else
             vSpd = 1.35;
+            
+            if (shoot_key){            
+                image_speed = 0.1;
+                sprite_index = spr_player_ledge_grab_shooting;
+                
+                if (!audio_is_playing(snd_firing)){
+                audio_emitter_pitch(audio_em_3, 1.1);
+                audio_emitter_gain(audio_em_3, 0.4);
+                audio_play_sound_on(audio_em_3, snd_firing, false, 8); 
+                }
+                
+                if (bulletsGun1[2] > 0){
+                    bulletObject = instance_create(x+(image_xscale*10), y+3, obj_Bullet);
+                    bulletsGun1[2] -= 1;
+                    bulletObject.speed = 8;
+                    
+                    // Check direction
+                    if (image_xscale == 1)
+                        bulletObject.direction = 180;
+                    else
+                        bulletObject.direction = 0;
+                }
+            }
         if (!right && !down)
             vSpd = initialJumpH;
-    }
+    } else
+        inLedgeGrab = false;
     
     if (hSpd > maxSpd)
         hSpd = maxSpd;

@@ -37,12 +37,23 @@ maxJumpH = -8; //maximum jump height
 initialJumpH = -6; // initial jump height
 godmode = 0; // blink mode when hit
 rollDist = 5; // the distance to roll
-bullets = 2; // number of bullets fired
+
+// Weapon variables
+/*
+[0] = bullets for idle shooting
+[1] = bullets for walking and shooting
+[2] = bullets for ledge shooting
+*/
+bulletsGun1[0] = 2; // bullets for idle shooting
+bulletsGun1[1] = 2; // bulets for walking shooting 
+bulletsGun1[2] = 1; // bullets for ledge grab shooting
 bulletObject = -1; // bullet object
+grenadeObject = -1; // grenade object
 
 // Control variables
 rolledOnce = false; // forces to commit to roll
-rolledDamage = false; //used to only get once damage when rolling
+rolledDamage = false; // used to only get once damage when rolling
+inLedgeGrab = false; // determines if in ledge grab state
 
 //Scripts
 state = move_state;
@@ -231,13 +242,25 @@ else {
             <string>/// Change back to move state 
 
 if (state == roll_state) {
-    rolledOnce = false;
-    rolledDamage = false;
+    rolledOnce = false; // stops from canceling rolls
+    rolledDamage = false; // take damage once from rolls
     state = move_state;
+    bulletsGun1[0] = 2; // give back bullets
+    bulletsGun1[1] = 2; // give back bullets
+}
+
+if (state == move_state){
+    bulletsGun1[2] = 1; // give back bullets
+}
+
+if (state == ledge_grab_state){
+    bulletsGun1[2] = 1; // give back bullets
+    sprite_index = spr_player_ledge_grab; // put back into ledge grab sprite
 }
 
 if (state == shoot_state) {
-    bullets = 2;
+    bulletsGun1[0] = 2; // give back bullets
+    bulletsGun1[1] = 2; // give back bullets
     state = move_state;
 }
 </string>

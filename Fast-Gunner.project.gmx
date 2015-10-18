@@ -28,7 +28,9 @@
       <sprite>sprites\spr_player_mask</sprite>
       <sprite>sprites\spr_player_ledge_grab</sprite>
       <sprite>sprites\spr_player_rolling</sprite>
-      <sprite>sprites\spr_player_shooting</sprite>
+      <sprite>sprites\spr_player_idle_shooting</sprite>
+      <sprite>sprites\spr_player_walk_shooting</sprite>
+      <sprite>sprites\spr_player_ledge_grab_shooting</sprite>
     </sprites>
     <sprites name="Level">
       <sprite>sprites\spr_inherit_solid</sprite>
@@ -43,10 +45,14 @@
       <sprite>sprites\spr_player_hp</sprite>
       <sprite>sprites\spr_hp_face</sprite>
       <sprite>sprites\spr_blood</sprite>
+      <sprite>sprites\spr_explosion</sprite>
     </sprites>
     <sprites name="Enemies">
       <sprite>sprites\spr_zombie_walking</sprite>
       <sprite>sprites\spr_zombie_idle</sprite>
+    </sprites>
+    <sprites name="Weapons">
+      <sprite>sprites\spr_grenade</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -70,6 +76,8 @@
       <script>scripts\exit_state.gml</script>
       <script>scripts\roll_state.gml</script>
       <script>scripts\shoot_state.gml</script>
+      <script>scripts\grenade_state.gml</script>
+      <script>scripts\scr_shooting.gml</script>
     </scripts>
     <scripts name="Enemy States">
       <script>scripts\scr_knockback.gml</script>
@@ -91,10 +99,14 @@
     <objects name="Effects">
       <object>objects\obj_Blood</object>
       <object>objects\obj_Bullet</object>
+      <object>objects\obj_Explosion</object>
     </objects>
     <objects name="Enemies">
       <object>objects\obj_EnemyZombie</object>
       <object>objects\obj_EnemyParent</object>
+    </objects>
+    <objects name="Weapons">
+      <object>objects\obj_Grenade</object>
     </objects>
   </objects>
   <rooms name="rooms">

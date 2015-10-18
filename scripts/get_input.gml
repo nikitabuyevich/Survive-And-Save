@@ -9,6 +9,7 @@ up = keyboard_check_pressed(vk_space);
 up_release = keyboard_check_released(vk_space);
 down = keyboard_check(vk_down);
 shoot_key = keyboard_check(ord('X'));
+grenade_key = keyboard_check_pressed(ord('Z'));
 roll_key = keyboard_check(ord('C'));
 
 // Override the controls for a gamepad

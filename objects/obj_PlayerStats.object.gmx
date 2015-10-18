@@ -78,8 +78,8 @@ switch (room) {
         if (debug){
             draw_set_font(fnt_debug);
             draw_text_colour(view_wview[0]/2, 10, "hSpd =:" +string(obj_Player.hSpd), c_lime, c_lime, c_lime, c_lime, 1);   
-            draw_text_colour(view_wview[0]/2, 25, "vSpd =:" +string(obj_Player.vSpd), c_lime, c_lime, c_lime, c_lime, 1);   
-            draw_text_colour(view_wview[0]/2, 40, "grav =:" +string(obj_Player.grav), c_lime, c_lime, c_lime, c_lime, 1);   
+            draw_text_colour(view_wview[0]/2, 25, "inLedgeGrab =:" +string(obj_Player.inLedgeGrab), c_lime, c_lime, c_lime, c_lime, 1);   
+            draw_text_colour(view_wview[0]/2, 40, "bulletsGun1[2] =:" +string(obj_Player.bulletsGun1[2]), c_lime, c_lime, c_lime, c_lime, 1);   
         } 
      
 
