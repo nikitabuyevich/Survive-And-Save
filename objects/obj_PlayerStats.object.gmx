@@ -36,7 +36,7 @@ score = 0;
 highscore = 0;
 time = 0;
 victory = false;
-debug = true;
+debug = false;
 
 // Damage from enemies
 zombieDamage = 5;

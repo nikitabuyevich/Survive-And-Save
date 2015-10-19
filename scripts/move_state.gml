@@ -9,9 +9,7 @@ if (shoot_key && !inLedgeGrab) {
     state = shoot_state;
 }
 
-if (grenade_key) {
-    state = shoot_state;
-}
+
 
 // Implementing gravity
 if (!place_meeting(x, y+1, obj_inherit_Solid)){

@@ -80,7 +80,7 @@
     <option_freeze>false</option_freeze>
     <option_frequency>0</option_frequency>
     <option_frontimage>nil</option_frontimage>
-    <option_fullscreen>False</option_fullscreen>
+    <option_fullscreen>True</option_fullscreen>
     <option_gameguid>{8BD584F8-F300-4B11-A77E-FE113888149A}</option_gameguid>
     <option_gameid>587659411</option_gameid>
     <option_haptic_effects>0</option_haptic_effects>
@@ -306,7 +306,7 @@
     <option_use_new_audio>True</option_use_new_audio>
     <option_variableerrors>False</option_variableerrors>
     <option_version>100</option_version>
-    <option_version_build>1</option_version_build>
+    <option_version_build>4</option_version_build>
     <option_version_company>Augmented Heart</option_version_company>
     <option_version_copyright></option_version_copyright>
     <option_version_description></option_version_description>
@@ -351,7 +351,7 @@
     <option_win8_texture_page>1024</option_win8_texture_page>
     <option_win8_wide_logo>Configs\Default\Windows8\logos\logo310.png</option_win8_wide_logo>
     <option_windowcolor>clBlack</option_windowcolor>
-    <option_windows_build_version>1</option_windows_build_version>
+    <option_windows_build_version>3</option_windows_build_version>
     <option_windows_company_info>Augmented Heart</option_windows_company_info>
     <option_windows_copyright_info></option_windows_copyright_info>
     <option_windows_description_info></option_windows_description_info>

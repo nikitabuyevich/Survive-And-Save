@@ -9,7 +9,7 @@ up = keyboard_check_pressed(vk_space);
 up_release = keyboard_check_released(vk_space);
 down = keyboard_check(vk_down);
 shoot_key = keyboard_check(ord('X'));
-grenade_key = keyboard_check_pressed(ord('Z'));
+//grenade_key = keyboard_check_pressed(ord('Z'));
 roll_key = keyboard_check(ord('C'));
 
 // Override the controls for a gamepad
@@ -24,4 +24,6 @@ if (gamepad_is_connected(gp_id)) {
     door = gamepad_button_check_pressed(gp_id, gp_face2);
     up_release = gamepad_button_check_released(gp_id, gp_face1);
     down = gamepad_axis_value(gp_id, gp_axislv) > thresh;
+    shoot_key = gamepad_button_check_pressed(gp_id, gp_face3);
+    roll_key = gamepad_button_check_pressed(gp_id, gp_face2);
 }
