@@ -1,6 +1,4 @@
 # Fast-Gunner
-### a **Augmented Heart** production
-
 #### Features:
 - Shooting
 - Rolling
