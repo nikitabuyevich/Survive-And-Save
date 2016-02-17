@@ -63,13 +63,16 @@ if (global.timer &lt;= 0) {
 }
 
 if (!instance_exists(obj_EnemyZombie) &amp;&amp; !global.gameOver) {
+    clearLevel = audio_emitter_create(); // theme song
+    audio_emitter_gain(clearLevel, 0.4);
+    audio_play_sound_on(clearLevel, snd_level_clear, false, 1);
     global.level++; // increase level
     obj_PlayerStats.maxHp += 10;
     if ((obj_PlayerStats.hp + 10) &lt;= obj_PlayerStats.maxHp)
         obj_PlayerStats.hp += 10;
     if (global.randLoop &gt; 0)
         global.zombiesKilled += global.randLoop;
-    score += (global.randLoop*10 - (obj_PlayerStats.maxHp - obj_PlayerStats.hp));
+    score += abs((global.randLoop*100 - (obj_PlayerStats.maxHp - obj_PlayerStats.hp)) + floor(global.timer));
     global.timer = room_speed/2 + (global.level*2);
     room_goto(rm_Game); // restart level
 }

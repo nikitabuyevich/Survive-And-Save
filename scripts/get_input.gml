@@ -24,6 +24,7 @@ if (gamepad_is_connected(gp_id)) {
     door = gamepad_button_check_pressed(gp_id, gp_face2);
     up_release = gamepad_button_check_released(gp_id, gp_face1);
     down = gamepad_axis_value(gp_id, gp_axislv) > thresh;
-    shoot_key = gamepad_button_check_pressed(gp_id, gp_face3);
+    shoot_key = gamepad_button_check(gp_id, gp_face3);
     roll_key = gamepad_button_check_pressed(gp_id, gp_face2);
+    global.start = gamepad_button_check_pressed(gp_id, gp_start);
 }

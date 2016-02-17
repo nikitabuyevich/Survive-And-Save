@@ -10,7 +10,8 @@
   <persistent>0</persistent>
   <colour>12632256</colour>
   <showcolour>-1</showcolour>
-  <code>if (instance_exists(obj_Player)) {
+  <code>window_set_cursor(cr_none);
+if (instance_exists(obj_Player)) {
     global.randLoop = global.level*round(random(2) + 1); // spawn at least 1 zombie and increase each round
     var loop = 0;
     var randX = 0;

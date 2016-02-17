@@ -5,20 +5,21 @@
   </Configs>
   <NewExtensions/>
   <sounds name="sound">
-    <sound>sound\snd_bat</sound>
-    <sound>sound\snd_boss_music</sound>
-    <sound>sound\snd_exit</sound>
     <sound>sound\snd_jump</sound>
     <sound>sound\snd_moving</sound>
     <sound>sound\snd_ouch</sound>
     <sound>sound\snd_step</sound>
-    <sound>sound\snd_tink</sound>
     <sounds name="Firing FX">
       <sound>sound\snd_firing</sound>
     </sounds>
     <sounds name="Enemies">
       <sound>sound\snd_enemy_hit</sound>
     </sounds>
+    <sounds name="Theme">
+      <sound>sound\snd_theme</sound>
+    </sounds>
+    <sound>sound\snd_level_clear</sound>
+    <sound>sound\snd_select</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="Player">
@@ -57,8 +58,11 @@
     </sprites>
     <sprites name="Menu">
       <sprite>sprites\spr_exit_game</sprite>
+      <sprite>sprites\spr_exit_game_hover</sprite>
       <sprite>sprites\spr_play_again</sprite>
+      <sprite>sprites\spr_play_again_hover</sprite>
       <sprite>sprites\spr_start</sprite>
+      <sprite>sprites\spr_start_hover</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -127,6 +131,7 @@
       <object>objects\obj_Start</object>
       <object>objects\obj_Exit</object>
       <object>objects\obj_GameInfo</object>
+      <object>objects\obj_ThemeSong</object>
     </objects>
   </objects>
   <rooms name="rooms">

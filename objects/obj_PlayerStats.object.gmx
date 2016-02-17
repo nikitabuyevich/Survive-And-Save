@@ -39,7 +39,7 @@ victory = false;
 debug = false;
 
 // Damage from enemies
-zombieDamage = 5;
+zombieDamage = 4 + global.level*floor(random(3));
 global.debug = false;
 </string>
           </argument>
