@@ -149,7 +149,8 @@ godmode = 0;
 get_input();
 
 if (obj_PlayerStats.hp &lt;= 0) { // Player dies
-    game_restart();
+    global.gameOver = true;
+    room_goto(rm_GameOver);
 }
 
 //execute state

@@ -1,4 +1,4 @@
-/// move(collision_object)
+/// scr_move(collision_object)
 /*
 Moves the player accordingly. If theres a wall, it will get
 as close as possible towards it.

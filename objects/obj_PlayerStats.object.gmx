@@ -40,6 +40,7 @@ debug = false;
 
 // Damage from enemies
 zombieDamage = 5;
+global.debug = false;
 </string>
           </argument>
         </arguments>
@@ -63,88 +64,26 @@ zombieDamage = 5;
           <argument>
             <kind>1</kind>
             <string>/// Draw the stats
-switch (room) {      
-               
-    default:
-        // PLAYER GUI    
-        
-        //draw face icon
-        draw_sprite_ext(spr_hp_face, 0, 30, 20, 1, 1, 0, c_white, 1);
-        
-        
-        var playerHealth = (hp/maxHp)*100;
-        draw_healthbar(40, 15, 120, 25, playerHealth, c_black, c_red, c_lime, 0, true, true);
-    
-        if (debug){
-            draw_set_font(fnt_debug);
-            draw_text_colour(view_wview[0]/2, 10, "hSpd =:" +string(obj_Player.hSpd), c_lime, c_lime, c_lime, c_lime, 1);   
-            draw_text_colour(view_wview[0]/2, 25, "inLedgeGrab =:" +string(obj_Player.inLedgeGrab), c_lime, c_lime, c_lime, c_lime, 1);   
-            draw_text_colour(view_wview[0]/2, 40, "bulletsGun1[2] =:" +string(obj_Player.bulletsGun1[2]), c_lime, c_lime, c_lime, c_lime, 1);   
-        } 
-     
+// PLAYER GUI    
 
-        
-        break;
+if (!global.gameOver) {
+//draw face icon
+draw_sprite_ext(spr_hp_face, 0, 30, 20, 1, 1, 0, c_white, 1);
+
+
+var playerHealth = (hp/maxHp)*100;
+draw_healthbar(40, 15, 120, 25, playerHealth, c_black, c_red, c_lime, 0, true, true);
 }
 
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="87">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Change rooms
-switch(room_next(room) == 1){
-    case false:
-        game_restart();
-        break;
+if (global.debug){
+    draw_set_font(fnt_debug);
+    draw_text_colour(view_wview[0]/2, 0, "maxHp =:" +string((obj_PlayerStats.maxHp)), c_lime, c_lime, c_lime, c_lime, 1);   
+    draw_text_colour(view_wview[0]/2, 10, "hp =:" +string((obj_PlayerStats.hp)), c_lime, c_lime, c_lime, c_lime, 1);    
+    draw_text_colour(view_wview[0]/2, 25, "level =:" +string(global.level), c_lime, c_lime, c_lime, c_lime, 1); 
+    draw_text_colour(view_wview[0]/2, 40, "zombies =:" +string(instance_number(obj_EnemyZombie)), c_lime, c_lime, c_lime, c_lime, 1);  
+} 
 
-    default:
-        room_goto_next();
-    break;
-}
-    
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="82">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Restart the room
-//PlayerStats.hp = PlayerStats.maxhp; 
-room_restart();
+
 </string>
           </argument>
         </arguments>
